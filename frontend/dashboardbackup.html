@@ -747,9 +747,7 @@
             }
 
             .analyze-btn {
-                display: inline-block;
-                padding: 9px 10px;
-                font-size: 11px;
+                display: none;
             }
 
             .score-area {
@@ -762,207 +760,6 @@
 
             .table-panel {
                 overflow-x: auto;
-            }
-        }
-
-        /* =========================
-           RESUME UPLOAD MODAL
-        ========================== */
-
-        .resume-modal {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(7, 26, 53, 0.55);
-            backdrop-filter: blur(3px);
-            z-index: 9999;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        .resume-modal.show {
-            display: flex;
-        }
-
-        .resume-modal-box {
-            width: 100%;
-            max-width: 600px;
-            background: white;
-            border-radius: 16px;
-            padding: 25px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
-        }
-
-        .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 20px;
-        }
-
-        .modal-header h2 {
-            font-size: 20px;
-            margin-bottom: 6px;
-        }
-
-        .modal-header p {
-            color: #64748b;
-            font-size: 12px;
-        }
-
-        .close-modal {
-            border: none;
-            background: #f1f5f9;
-            width: 35px;
-            height: 35px;
-            border-radius: 8px;
-            font-size: 23px;
-            cursor: pointer;
-            color: #475569;
-        }
-
-        .upload-area {
-            border: 2px dashed #cbd5e1;
-            border-radius: 14px;
-            padding: 42px 20px;
-            text-align: center;
-            background: #f8fafc;
-            transition: 0.2s;
-        }
-
-        .upload-area.dragging {
-            border-color: #10b981;
-            background: #ecfdf5;
-        }
-
-        .upload-icon-large {
-            font-size: 42px;
-            margin-bottom: 12px;
-        }
-
-        .upload-area h3 {
-            font-size: 16px;
-            margin-bottom: 7px;
-        }
-
-        .upload-area p {
-            font-size: 12px;
-            color: #64748b;
-            margin-bottom: 17px;
-        }
-
-        .choose-file-btn {
-            display: inline-block;
-            background: #10b981;
-            color: white;
-            padding: 11px 18px;
-            border-radius: 8px;
-            font-size: 12px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .upload-area small {
-            display: block;
-            color: #94a3b8;
-            margin-top: 12px;
-            font-size: 10px;
-        }
-
-        .selected-resume {
-            display: none;
-            align-items: center;
-            justify-content: space-between;
-            margin-top: 16px;
-            padding: 13px;
-            border: 1px solid #dbe4ee;
-            border-radius: 10px;
-        }
-
-        .resume-file-info {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            min-width: 0;
-        }
-
-        .resume-file-icon {
-            width: 40px;
-            height: 40px;
-            display: grid;
-            place-items: center;
-            background: #dcfce7;
-            border-radius: 8px;
-            flex-shrink: 0;
-        }
-
-        .resume-file-info strong {
-            display: block;
-            font-size: 12px;
-            overflow-wrap: anywhere;
-        }
-
-        .resume-file-info span {
-            display: block;
-            margin-top: 4px;
-            font-size: 10px;
-            color: #64748b;
-        }
-
-        .remove-resume {
-            border: none;
-            background: #fee2e2;
-            color: #dc2626;
-            padding: 7px 10px;
-            border-radius: 7px;
-            cursor: pointer;
-            flex-shrink: 0;
-        }
-
-        .modal-footer {
-            display: flex;
-            justify-content: flex-end;
-            gap: 10px;
-            margin-top: 20px;
-        }
-
-        .cancel-btn {
-            border: 1px solid #dbe4ee;
-            background: white;
-            color: #475569;
-            padding: 10px 17px;
-            border-radius: 8px;
-            cursor: pointer;
-        }
-
-        .continue-btn {
-            border: none;
-            background: #10b981;
-            color: white;
-            padding: 10px 18px;
-            border-radius: 8px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .continue-btn:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-
-        @media (max-width: 600px) {
-            .resume-modal-box {
-                padding: 18px;
-            }
-
-            .modal-footer {
-                flex-direction: column;
-            }
-
-            .cancel-btn,
-            .continue-btn {
-                width: 100%;
             }
         }
     </style>
@@ -1116,9 +913,9 @@
 
             <div class="nav-right">
 
-                <button type="button" class="analyze-btn" onclick="openResumeModal()">
-                    + New Analysis
-                </button>
+                <a href="upload-resume.html" class="analyze-btn">
+    + New Analysis
+</a>
 
                 <div class="notification">
                     🔔
@@ -1569,7 +1366,7 @@
 
                     <div class="quick-actions">
 
-                        <div class="action" onclick="openResumeModal()" role="button" tabindex="0" aria-haspopup="dialog">
+                        <a href="upload-resume.html" class="action">
 
                             <div class="action-icon">
                                 📄
@@ -1581,7 +1378,7 @@
                                 Upload PDF or DOCX
                             </p>
 
-                        </div>
+                        </a>
 
 
                         <div class="action">
@@ -1852,163 +1649,6 @@
     </main>
 
 </div>
-
-<!-- ================= RESUME UPLOAD MODAL ================= -->
-
-<div class="resume-modal" id="resumeModal" aria-hidden="true">
-    <div class="resume-modal-box" role="dialog" aria-modal="true" aria-labelledby="resumeModalTitle">
-        <div class="modal-header">
-            <div>
-                <h2 id="resumeModalTitle">Upload Your Resume</h2>
-                <p>Upload a PDF or DOCX to start your analysis.</p>
-            </div>
-
-            <button type="button" class="close-modal" aria-label="Close upload dialog" onclick="closeResumeModal()">
-                ×
-            </button>
-        </div>
-
-        <div class="upload-area" id="uploadArea">
-            <div class="upload-icon-large">📄</div>
-            <h3>Drag &amp; Drop your resume here</h3>
-            <p>or select a file from your computer</p>
-
-            <label for="resumeFile" class="choose-file-btn">Choose Resume</label>
-            <input type="file" id="resumeFile" accept=".pdf,.docx" hidden>
-
-            <small>PDF / DOCX • Maximum 5 MB</small>
-        </div>
-
-        <div class="selected-resume" id="selectedResume">
-            <div class="resume-file-info">
-                <div class="resume-file-icon">📑</div>
-                <div>
-                    <strong id="resumeFileName"></strong>
-                    <span id="resumeFileSize"></span>
-                </div>
-            </div>
-
-            <button type="button" class="remove-resume" onclick="removeResume()">Remove</button>
-        </div>
-
-        <div class="modal-footer">
-            <button type="button" class="cancel-btn" onclick="closeResumeModal()">Cancel</button>
-            <button type="button" class="continue-btn" id="continueResumeBtn" onclick="continueResumeAnalysis()" disabled>
-                Continue to Analysis →
-            </button>
-        </div>
-    </div>
-</div>
-
-<script>
-    let selectedResumeFile = null;
-
-    const resumeModal = document.getElementById("resumeModal");
-    const resumeFileInput = document.getElementById("resumeFile");
-    const selectedResume = document.getElementById("selectedResume");
-    const resumeFileName = document.getElementById("resumeFileName");
-    const resumeFileSize = document.getElementById("resumeFileSize");
-    const continueResumeBtn = document.getElementById("continueResumeBtn");
-    const uploadArea = document.getElementById("uploadArea");
-
-    function openResumeModal() {
-        resumeModal.classList.add("show");
-        resumeModal.setAttribute("aria-hidden", "false");
-        resumeModal.querySelector(".close-modal").focus();
-    }
-
-    function closeResumeModal() {
-        resumeModal.classList.remove("show");
-        resumeModal.setAttribute("aria-hidden", "true");
-    }
-
-    resumeFileInput.addEventListener("change", function () {
-        if (this.files.length > 0) {
-            handleResumeFile(this.files[0]);
-        }
-    });
-
-    function handleResumeFile(file) {
-        const extension = file.name.toLowerCase().split(".").pop();
-
-        if (extension !== "pdf" && extension !== "docx") {
-            alert("Only PDF and DOCX files are allowed.");
-            removeResume();
-            return;
-        }
-
-        if (file.size > 5 * 1024 * 1024) {
-            alert("Resume must be smaller than 5 MB.");
-            removeResume();
-            return;
-        }
-
-        selectedResumeFile = file;
-        resumeFileName.textContent = file.name;
-        resumeFileSize.textContent = (file.size / 1024 / 1024).toFixed(2) + " MB";
-        selectedResume.style.display = "flex";
-        continueResumeBtn.disabled = false;
-    }
-
-    function removeResume() {
-        selectedResumeFile = null;
-        resumeFileInput.value = "";
-        selectedResume.style.display = "none";
-        continueResumeBtn.disabled = true;
-    }
-
-    uploadArea.addEventListener("dragover", function (event) {
-        event.preventDefault();
-        uploadArea.classList.add("dragging");
-    });
-
-    uploadArea.addEventListener("dragleave", function (event) {
-        if (!uploadArea.contains(event.relatedTarget)) {
-            uploadArea.classList.remove("dragging");
-        }
-    });
-
-    uploadArea.addEventListener("drop", function (event) {
-        event.preventDefault();
-        uploadArea.classList.remove("dragging");
-
-        const file = event.dataTransfer.files[0];
-        if (file) {
-            handleResumeFile(file);
-        }
-    });
-
-    document.querySelector(".action[role='button']").addEventListener("keydown", function (event) {
-        if (event.key === "Enter" || event.key === " ") {
-            event.preventDefault();
-            openResumeModal();
-        }
-    });
-
-    function continueResumeAnalysis() {
-        if (!selectedResumeFile) {
-            alert("Please select a resume first.");
-            return;
-        }
-
-        alert(
-            "Resume selected successfully!\n\n" +
-            "Next step: connect this file to your FastAPI backend."
-        );
-    }
-
-    resumeModal.addEventListener("click", function (event) {
-        if (event.target === resumeModal) {
-            closeResumeModal();
-        }
-    });
-
-    document.addEventListener("keydown", function (event) {
-        if (event.key === "Escape" && resumeModal.classList.contains("show")) {
-            closeResumeModal();
-        }
-    });
-</script>
 
 </body>
 </html>
